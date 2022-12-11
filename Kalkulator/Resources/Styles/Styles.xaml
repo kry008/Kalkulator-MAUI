@@ -383,4 +383,11 @@
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
     </Style>
 
+    <Style x:Key="btnStart" TargetType="Button">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="BorderWidth" Value="0" />
+    </Style>
+
 </ResourceDictionary>

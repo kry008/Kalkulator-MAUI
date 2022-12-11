@@ -3,9 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kalkulator.View.Start"
              Title="Start">
-    <VerticalStackLayout>
-        <Image Source="kalkulator"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <Grid BackgroundColor="Black">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image 
+            Grid.Row="1"
+            Source="kalkulator.png" />
+        <Button Clicked="przejscie" Text="Start" BorderWidth="0" TextColor="Black" FontSize="Large" BackgroundColor="White" Grid.Row="2" />
+    </Grid>
 </ContentPage>

@@ -2,6 +2,7 @@ namespace Kalkulator.View;
 
 public partial class Start : ContentPage
 {
+
 	public Start()
 	{
 		InitializeComponent();
@@ -10,5 +11,9 @@ public partial class Start : ContentPage
             Navigation.PushAsync(new Interfejs());
             return false;
         });
+    }
+    private void przejscie(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Interfejs());
     }
 }

@@ -6,8 +6,8 @@ using Windows.Graphics;
 #endif
 public partial class App : Application
 {
-    const int WindowWidth = 400;
-    const int WindowHeight = 600;
+    const int WindowWidth = 450;
+    const int WindowHeight = 650;
     public App()
 	{
 		InitializeComponent();
