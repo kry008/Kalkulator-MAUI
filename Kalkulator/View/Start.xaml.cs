@@ -6,7 +6,7 @@ public partial class Start : ContentPage
 	public Start()
 	{
 		InitializeComponent();
-        Device.StartTimer(TimeSpan.FromSeconds(5), () =>
+        Device.StartTimer(TimeSpan.FromSeconds(2), () =>
         {
             Navigation.PushAsync(new Interfejs());
             return false;

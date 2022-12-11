@@ -8,13 +8,14 @@
         
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Image 
             Grid.Row="1"
-            Source="kalkulator.png" />
+            Source="kalkulator.png"
+            />
         <Button Clicked="przejscie" Text="Start" BorderWidth="0" TextColor="Black" FontSize="Large" BackgroundColor="White" Grid.Row="2" />
     </Grid>
 </ContentPage>
