@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kalkulator.View.Historia"
+             Title="Historia">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Padding="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Text="Kalkulator" Clicked="pokazKalkulator" Padding="0, 10, 0, 0" HeightRequest="35" />
+            <Button Grid.Column="1" Text="Historia" Padding="0, 10, 0, 0" HeightRequest="35" BackgroundColor="#222"/>
+        </Grid>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout>
+                <Button Text="Wyczyść historię" FontSize="Large" Clicked="Button_Clicked_Czysc" x:Name="Czysc" BorderColor="Black" />
+                <VerticalStackLayout x:Name="Layout">
+
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
