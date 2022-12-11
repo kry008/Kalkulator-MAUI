@@ -1,4 +1,6 @@
-﻿namespace Kalkulator.View;
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace Kalkulator.View;
 
 public partial class Interfejs : ContentPage
 {
@@ -20,17 +22,18 @@ public partial class Interfejs : ContentPage
     {
         InitializeComponent();
         poleTekstoweHistoria.Text = text;
+        tekst = ll1 = wynikZHistorii;
         poleTekstowe.Text = wynikZHistorii;
-        ll1 = wynikZHistorii;
         znakPodany = ' ';
         przecinekPodany = false;
-        pierwszaLiczba = false;
+        pierwszaLiczba = true;
         ll2 = "";
         wynik = 0.0;
         zestawOperatorow = 1;
     }
     public void znak(char a)
     {
+        wyswietl();
         switch (a)
         {
             case '0':
@@ -106,7 +109,7 @@ public partial class Interfejs : ContentPage
                 if (!pierwszaLiczba)
                 {
                     DisplayAlert("Błąd", "Operator podany", "OK");
-                    break;
+                    return;
                 }
                 znakPodany = '+';
                 pierwszaLiczba = false;
@@ -116,7 +119,7 @@ public partial class Interfejs : ContentPage
                 if (!pierwszaLiczba)
                 {
                     DisplayAlert("Błąd", "Operator podany", "OK");
-                    break;
+                    return;
                 }
                 znakPodany = '-';
                 pierwszaLiczba = false;
@@ -126,7 +129,7 @@ public partial class Interfejs : ContentPage
                 if (!pierwszaLiczba)
                 {
                     DisplayAlert("Błąd", "Operator podany", "OK");
-                    break;
+                    return;
                 }
                 znakPodany = '*';
                 pierwszaLiczba = false;
@@ -136,7 +139,7 @@ public partial class Interfejs : ContentPage
                 if (!pierwszaLiczba)
                 {
                     DisplayAlert("Błąd", "Operator podany", "OK");
-                    break;
+                    return;
                 }
                 znakPodany = '/';
                 pierwszaLiczba = false;
@@ -146,7 +149,7 @@ public partial class Interfejs : ContentPage
                 if (!pierwszaLiczba)
                 {
                     DisplayAlert("Błąd", "Operator podany", "OK");
-                    break;
+                    return;
                 }
                 znakPodany = '^';
                 pierwszaLiczba = false;
@@ -156,7 +159,7 @@ public partial class Interfejs : ContentPage
                 if (!pierwszaLiczba)
                 {
                     DisplayAlert("Błąd", "Operator podany", "OK");
-                    break;
+                    return;
                 }
                 znakPodany = '%';
                 pierwszaLiczba = false;
@@ -166,6 +169,7 @@ public partial class Interfejs : ContentPage
                 if (!pierwszaLiczba)
                 {
                     DisplayAlert("Błąd", "Operator podany", "OK");
+                    return;
                 }
                 znakPodany = '√';
                 pierwszaLiczba = false;
@@ -178,13 +182,6 @@ public partial class Interfejs : ContentPage
         wyswietl();
         tekst = tekst + a;
         poleTekstoweHistoria.Text = tekst;
-    }
-    public void wyswietl()
-    {
-        if (pierwszaLiczba)
-            poleTekstowe.Text = ll1;
-        else
-            poleTekstowe.Text = ll2;
     }
 
     private void przyciskKalkulator_More(object sender, EventArgs e)
@@ -394,6 +391,9 @@ public partial class Interfejs : ContentPage
                 case '√':
                     wynik = Math.Pow(Convert.ToDouble(ll1), 1 / Convert.ToDouble(ll2));
                     break;
+                case ' ':
+                    wynik = Convert.ToDouble(ll1);
+                    break;
             }
             if (!blad)
             {
@@ -409,15 +409,15 @@ public partial class Interfejs : ContentPage
             }
             else
             {
-                poleTekstowe.Text = "Błąd";
                 czyscEkran();
+                poleTekstowe.Text = "Błąd";
             }
 
         }
         else
         {
-            poleTekstowe.Text = "Błąd";
             czyscEkran();
+            poleTekstowe.Text = "Błąd";
         }
     }
     private void czyscEkran()
@@ -429,5 +429,13 @@ public partial class Interfejs : ContentPage
         pierwszaLiczba = true;
         przecinekPodany = false;
 
+    }
+    public void wyswietl()
+    {
+        poleTekstoweHistoria.Text = tekst;
+        if (pierwszaLiczba)
+            poleTekstowe.Text = ll1;
+        else
+            poleTekstowe.Text = ll2;
     }
 }
