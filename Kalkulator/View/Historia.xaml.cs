@@ -34,11 +34,11 @@ public partial class Historia : ContentPage
         else
         {
             Czysc.IsVisible = true;
-            string[] lines = File.ReadAllLines(path);
+            string[] lines = File.ReadAllLines(path);//czyta ze zmiennej path ka¿d¹ liniê
             for (int i = lines.Length - 1; i >= 0; i--)
-            {
-                string[] parts = lines[i].Split(';');
-                Button button = new Button
+            {//wypisuje na samej górze najnowsze
+                string[] parts = lines[i].Split(';');//rozdziel liniê wed³ug schematu
+                Button button = new Button//tworzenie nowego przycisku z podanymi w³aœciwoœciami
                 {
                     Text = $"{parts[0]} {parts[2]} {parts[1]} = {parts[3]}",
                     Margin = new Thickness(5),
@@ -47,8 +47,8 @@ public partial class Historia : ContentPage
                     VerticalOptions = LayoutOptions.FillAndExpand
 
                 };
-                button.Clicked += Button_History;
-                Layout.Children.Add(button);
+                button.Clicked += Button_History;//dodaje onClick
+                Layout.Children.Add(button);//Dodaj element, nie kasuj¹c innych
             }
         }
     }

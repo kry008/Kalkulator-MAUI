@@ -20,7 +20,7 @@
             <VerticalStackLayout>
                 <Button Text="Wyczyść historię" FontSize="Large" Clicked="Button_Clicked_Czysc" x:Name="Czysc" BorderColor="Black" />
                 <VerticalStackLayout x:Name="Layout">
-
+                    <!-- Miejsce na przyciski, szuka x:Name:"Layout"-->
                 </VerticalStackLayout>
             </VerticalStackLayout>
         </ScrollView>

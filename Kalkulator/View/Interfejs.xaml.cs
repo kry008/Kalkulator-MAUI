@@ -327,11 +327,11 @@ public partial class Interfejs : ContentPage
         }
     }
     public void zapiszDoPliku(double l1, double l2, char znak, double wynik)
-    {
-        string path = Path.Combine(FileSystem.AppDataDirectory, "obliczenia");
-        using (StreamWriter sw = File.AppendText(path))
+    {//Funkcja wywoływana po wykonaniu działania, służy do zapisywania danych do pliku
+        string path = Path.Combine(FileSystem.AppDataDirectory, "obliczenia");//zapisz w folderze aplikacji do pliku obliczenia
+        using (StreamWriter sw = File.AppendText(path))//dodaj na końcu pliku
         {
-            sw.WriteLine(l1 + ";" + l2 + ";" + znak + ";" + wynik);
+            sw.WriteLine(l1 + ";" + l2 + ";" + znak + ";" + wynik);//zapisz w postaci l1;l2;znak;wynik
         }
 
     }
